@@ -13,7 +13,7 @@ app.config['MYSQL_HOST'] = 'switchyard.proxy.rlwy.net'
 app.config['MYSQL_USER'] = 'root'       
 app.config['MYSQL_PASSWORD'] = 'gdjsJHvkEAnErWlUOTpfwPesuvBVWWYk'        
 app.config['MYSQL_DB'] = 'railway'
-app.config['MYSQL_PORT'] = '25299'
+app.config['MYSQL_PORT'] = 25299
 
 mysql = MySQL(app)
 
