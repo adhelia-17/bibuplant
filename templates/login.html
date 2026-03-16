@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="description" content="BIBUPlant - Platform cerdas berbasis kecerdasan buatan untuk mendeteksi penyakit bibit buah tropis" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>BIBUPlant - Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #f1f0e9;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+
+        .halaman-login {
+            width: 100vw;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .halaman-login .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative;
+        }
+
+        .halaman-login .logo_bibup {
+            width: 115px;
+            height: 115px;
+            flex-shrink: 0;
+            position: relative;
+            top: -4px;
+            left: 10px;
+        }
+
+        .halaman-login .brand-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: -109px;
+            margin-left: 123px;
+        }
+
+        .halaman-login .div {
+            width: 188px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Dangrek-Bold";
+            font-weight: 700;
+            color: #000000;
+            font-size: 25px;
+            text-align: center;
+            letter-spacing: 8.00px;
+            line-height: 1px;
+            margin: 0;
+        }
+
+        .halaman-login .text-wrapper-2 {
+            width: 280px;
+            height: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            font-family: "Comic Sans";
+            font-weight: 200;
+            color: #000000;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 2.00px;
+            line-height: 10px;
+            margin: 0;
+        }
+
+        .rectangle3 {
+            position: absolute;
+            width: 180px;
+            height: 80px;
+            left: 370px;
+            top: 150px;
+            background: #41644a;
+            border-radius: 20px;
+        }
+
+        .rectangle2 {
+            position: absolute;
+            width: 800px;
+            height: 340px;
+            left: 370px;
+            top: 200px;
+            background: #e9762b;
+            border-radius: 10px;
+        }
+
+        .login {
+            position: absolute;
+            width: 242px;
+            height: 36px;
+            left: 415px;
+            top: 157px;
+            font-weight: 700;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.3em;
+            color: #f1f0e9;
+        }
+
+        .name-label {
+            position: absolute;
+            width: 242px;
+            height: 36px;
+            left: 430px;
+            top: 217px;
+            font-weight: 700;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.2em;
+            color: #000000;
+        }
+        
+         .input-container {
+            position: relative;
+            margin-bottom: 75px; 
+            width: 600px;
+            height: 55px;
+            top:155px;
+            left: 430px;
+        }
+
+        .input-nama,
+        .input-password {
+            font-family: "Dangrek-Bold";
+            width: 100%; 
+            height: 55px;
+            background: #f1f0e9; 
+            border-radius: 20px; 
+            outline: none; 
+            box-shadow: #2b4030; 
+            padding: 0 20px; 
+            font-size: 20px;
+        }
+
+        .input-nama:focus,
+        .input-password:focus {
+            border: 2px solid #41644A; 
+        }
+
+        .nama-teks,
+        .password-teks {
+            position: absolute;
+            left: 20px; 
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 0.2em;
+            color: #b4b4b4;
+            transition: opacity 0.3s;
+            pointer-events: none; 
+            top: 50%;
+            transform: translateY(-50%); 
+        }
+
+
+        .password-label {
+            position: absolute;
+            width: 145px;
+            height: 36px;
+            left: 430px;
+            top: 343px;
+            font-weight: 700;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.2em;
+            color: #000000;
+        }
+
+        .back-link {
+            position: absolute;
+            width: 138px;
+            height: 29px;
+            left: 1400px;
+            top: 50px;
+            font-weight: 400;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.2em;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            left: 424px;
+            top: 475px;
+            background: #953b00;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            font-family: "Dangrek-Bold";
+            z-index: 10;
+        }
+
+        .signup-button {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            left: 560px;
+            top: 475px;
+            background: rgba(225, 179, 149, 0.32);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            font-family: "Dangrek-Bold";
+        }
+
+        .eye-icon {
+        position: absolute;
+        right: 5px;
+        top: 30px;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #000;
+        cursor: pointer;
+    }
+
+    </style>
+</head>
+<body>
+    <main class="halaman-login">
+        <header class="header">
+            <div class="logo-container">
+                <img class="logo_bibup" src="../static/gambar/logo_bibup.png" alt="Logo BIBUPlant" />
+                <div class="brand-info">
+                    <h1 class="div">BIBUPlant</h1>
+                    <p class="text-wrapper-2">Bibit Sehat, Panen Nikmat!</p>
+                </div>
+            </div>
+        </header>   
+    <div class="rectangle3"></div>
+    <div class="rectangle2"></div>
+    <a href="/dashboard" class="back-link">Kembali</a>
+    <div class="login">Login</div>
+    <div class="name-label">Nama</div>
+    <div class="input-container">
+            <input type="text" id="username" class="input-nama" onfocus="hideLabel('nama')" onblur="showLabel('nama')" />
+            <div class="nama-teks">Masukkan Nama</div>
+        </div>
+        <div class="input-container">
+            <input type="password" id="password" class="input-password" onfocus="hideLabel('password')" onblur="showLabel('password')" />
+            <div class="password-teks">Masukkan Password</div>
+            <span class="eye-icon" onclick="togglePassword(this)"><i class="fa fa-eye"></i></span>
+        </div>
+        <button class="login-button" onclick="submitLogin()">Login</button>
+    </div>
+    <div class="password-label">Password</div>
+     <a href="/signup" class="signup-button">Sign Up</a>
+
+    <script>
+        function hideLabel(type) {
+            if (type === 'nama') {
+                document.querySelector('.nama-teks').style.opacity = '0'; 
+            } else if (type === 'password') {
+                document.querySelector('.password-teks').style.opacity = '0'; 
+            }
+        }
+
+        function showLabel(type) {
+            if (type === 'nama') {
+                const inputNama = document.querySelector('.input-nama');
+                if (inputNama.value === '') {
+                    document.querySelector('.nama-teks').style.opacity = '1'; 
+                }
+            } else if (type === 'password') {
+                const inputPassword = document.querySelector('.input-password');
+                if (inputPassword.value === '') {
+                    document.querySelector('.password-teks').style.opacity = '1'; 
+                }
+            }
+        }
+    </script>
+
+    <script>
+    function submitLogin() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+
+        if (!username || !password) {
+        alert("Harap masukkan username dan password.");
+        return;
+        }
+
+        fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (!data.success) {
+                alert(data.error || "Login gagal");
+                return;
+            }
+
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("role", data.role);
+
+            if (data.role === "admin") {
+                window.location.href = "/admin-dashboard";
+            } else {
+                window.location.href = "/dashboard";
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Terjadi kesalahan server");
+        });
+    }
+    </script>
+
+    <script>
+
+function togglePassword(el) {
+    const input = document.getElementById("password");
+    const icon = el.querySelector("i");
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+
+</script>
+</body>
+</html>

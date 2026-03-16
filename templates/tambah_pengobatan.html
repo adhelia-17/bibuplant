@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="description" content="BIBUPlant - Platform cerdas berbasis kecerdasan buatan untuk mendeteksi penyakit bibit buah tropis" />
+    <title>BIBUPlant - Pengobatan</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0; 
+            min-height: 100vh;
+            background-color: #f1f0e9;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+        .halaman-dashboard {
+            width: 100vw;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .halaman-dashboard .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative;
+        }
+
+        .halaman-dashboard .logo-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .halaman-dashboard .logo_bibup {
+            width: 115px;
+            height: 115px;
+            flex-shrink: 0;
+            position: relative;
+            top: -4px;
+            left: 10px;
+        }
+
+        .halaman-dashboard .brand-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 10px;
+        }
+
+        .halaman-dashboard .div {
+            width: 188px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Dangrek-Bold";
+            font-weight: 700;
+            color: #000000;
+            font-size: 25px;
+            text-align: center;
+            letter-spacing: 8.00px;
+            line-height: 1px;
+            margin: 0;
+        }
+
+        .halaman-dashboard .text-wrapper-2 {
+            width: 280px;
+            height: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            font-family: "Comic Sans";
+            font-weight: 200;
+            color: #000000;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 2.00px;
+            line-height: 10px;
+            margin: 0;
+        }
+
+        .halaman-dashboard .box1 {
+            position: absolute;
+            width: 280px;
+            height: 80px;
+            left: 50px;
+            top: 150px;
+            background: #41644a;
+            border-radius: 20px;
+            font-family: "Dangrek-Bold";
+            font-size: 20px;
+            color:#f1f0e9;
+            padding-top: 15px;
+            justify-content: center;
+            display: flex;
+        }
+
+        .halaman-dashboard .box2 {
+            position: absolute;
+            width: 280px;
+            height: 500px;
+            left: 50px;
+            top: 200px;
+            background: #e9762b;
+            border-radius: 10px;
+        }
+       
+        .rectangle {
+            position: absolute;
+            width: 220px;
+            height: 49px;
+            left: 79px;
+            background: #EBEAEA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Dangrek-Bold';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0.2em;
+            color: #41644A;
+            transition: font-weight 0.1s ease, transform 0.3s ease;
+            outline: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .rectangle:hover{
+            font-weight: 700;
+            transform: scale(1.05);
+        }
+
+        .rectangle1 { top: 230px; }
+        .rectangle2 { top: 305px; }
+        .rectangle3 { top: 380px; }
+        .rectangle4 { top: 455px; }
+        .rectangle5 { top: 530px; }
+        .rectangle6 { top: 605px; }
+
+        .table-container {
+            height: 420px;
+            overflow-y: auto;
+            border-radius: 8px;
+        }
+
+        .form-card {
+            width: 900px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 10px 0 0 450px;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #41644a;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .form-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group select {
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .form-group select:focus {
+            border-color: #41644a;
+            outline: none;
+            box-shadow: 0 0 5px rgba(65,100,74,0.4);
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background: #41644a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #2f4f35;
+        }
+
+        .btn-secondary {
+            background: #e9762b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #c85f1f;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #41644a;
+            letter-spacing: 1px;
+        }
+
+        .custom-input {
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1.5px solid #ddd;
+            background: #f9f9f9;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        /* efek hover */
+        .custom-input:hover {
+            border-color: #e9762b;
+            background: #fff;
+        }
+
+        /* efek saat diklik */
+        .custom-input:focus {
+            border-color: #41644a;
+            background: #ffffff;
+            box-shadow: 0 0 8px rgba(65, 100, 74, 0.3);
+        }
+
+        /* placeholder styling */
+        .custom-input::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+.back-link {
+            position: absolute;
+            width: 138px;
+            height: 29px;
+            left: 1400px;
+            top: 50px;
+            font-weight: 400;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.2em;
+            color: #000000;
+            text-decoration: none;
+        }
+
+</style>
+</head>
+<body>
+    <main class="halaman-dashboard">
+        <header class="header">
+            <div class="logo-container">
+                <img class="logo_bibup" src="../static/gambar/logo_bibup.png" alt="Logo BIBUPlant" />
+                <div class="brand-info">
+                    <h1 class="div">BIBUPlant</h1>
+                    <p class="text-wrapper-2">Bibit Sehat, Panen Nikmat!</p>
+                </div>
+            </div>
+        <a href="/datapengobatan" class="back-link">Kembali</a>
+        </header>
+        <div class="box1">Welcome Back Mimin!</div>
+        <div class="box2"></div>
+        <a class="rectangle rectangle1" href="/riwayatpengguna">Riwayat Pengguna</a>
+        <a class="rectangle rectangle2" href="/basispengetahuan">Basis Pengetahuan</a>
+        <a class="rectangle rectangle3" href="/datapenyakit">Data Penyakit</a>
+        <a class="rectangle rectangle4" href="/datagejala">Data Gejala</a>
+        <a class="rectangle rectangle5" href="/datapengobatan">Data Pengobatan</a>
+        <a class="rectangle rectangle6" href="/datapencegahan">Data Pencegahan</a>
+    </main> 
+
+<div class="form-card">
+    <h2 class="form-title">Tambah Data Pengobatan</h2>
+
+    <form id="tambahForm" class="form-content">
+
+        <div class="form-group">
+            <label>Kode Pengobatan</label>
+            <input type="text" id="pengobatanKode" class="custom-input" placeholder="Contoh: PN01" required>
+        </div>
+
+        <div class="form-group">
+            <label>Nama Pengobatan</label>
+            <input type="text" id="pengobatanName" class="custom-input" placeholder="Contoh: Menggunakan pupuk organik berbahan dasar herbal" required>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn-primary">Simpan</button>
+            <button type="button" class="btn-secondary" onclick="window.location.href='/datapengobatan'">
+                Batal
+            </button>
+        </div>
+    </form>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const kodeGejalaSelect = document.getElementById("kodePengobatan");
+    const form = document.getElementById("tambahForm");
+
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+
+        fetch("/add_treatment",{
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({
+                kode_pengobata: kodePengobatanSelect.value
+            })
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            alert(data.message);
+            window.location.href = "/datapengobatan";
+        })
+        .catch(err=>{
+            alert("Gagal menyimpan data");
+        });
+    });
+
+});
+</script>
+</body>
+</html>
+

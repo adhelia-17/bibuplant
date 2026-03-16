@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="description" content="BIBUPlant - Platform cerdas berbasis kecerdasan buatan untuk mendeteksi penyakit bibit buah tropis" />
+    <title>BIBUPlant - diagnosa2</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0; 
+            min-height: 100vh;
+            background-color: #f1f0e9;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+        .halaman-diagnosa {
+            width: 100vw;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .halaman-diagnosa .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative;
+        }
+
+        .halaman-diagnosa .logo-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .halaman-diagnosa .logo_bibup {
+            width: 115px;
+            height: 115px;
+            flex-shrink: 0;
+            position: relative;
+            top: -4px;
+            left: 10px;
+        }
+
+        .halaman-diagnosa .brand-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 10px;
+        }
+
+        .halaman-diagnosa .div {
+            width: 188px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Dangrek-Bold";
+            font-weight: 700;
+            color: #000000;
+            font-size: 25px;
+            text-align: center;
+            letter-spacing: 8.00px;
+            line-height: 1px;
+            margin: 0;
+        }
+
+        .halaman-diagnosa .text-wrapper-2 {
+            width: 280px;
+            height: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            font-family: "Comic Sans";
+            font-weight: 200;
+            color: #000000;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 2.00px;
+            line-height: 10px;
+            margin: 0;
+        }
+
+        .halaman-diagnosa .navigation {
+            position: absolute;
+            justify-content: center;
+            top: 125px;
+            left: 890px;
+            transform: translateX(-50%);
+            width: 759px;
+            height: 45px;
+        }
+
+        .halaman-diagnosa .rectangle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 590px;
+            height: 40px;
+            border-radius: 20px;
+            background: linear-gradient(90deg, rgba(65, 100, 74, 0.25) 0%, rgba(117, 183, 134, 0.25) 100%);
+        }
+
+        .halaman-diagnosa .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .halaman-diagnosa .nav-list li {
+            flex: 1;
+        }
+
+        .halaman-diagnosa .nav-list a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            font-family: "David Libre-Regular", Helvetica;
+            font-weight: 400;
+            color: #000000;
+            font-size: 15px;
+            text-align: center;
+            letter-spacing: 4.00px;
+            line-height: 16px;
+            text-decoration: none;
+            transition: font-weight 0.1s ease;
+            margin: 0 30px;
+            outline: none;
+        }
+
+        .halaman-diagnosa .nav-list a:hover,
+        .halaman-diagnosa .nav-list a:focus {
+            font-weight: 700;
+        }
+
+
+        .halaman-diagnosa .text-wrapper-3 {
+            font-family: "David Libre-Bold", Helvetica;
+            font-weight: 700;
+        }
+
+        .halaman-diagnosa .text-wrapper-4,
+        .halaman-diagnosa .text-wrapper-5,
+        .halaman-diagnosa .text-wrapper-6 {
+            font-family: "David Libre";
+            font-weight: 400;
+        }
+
+        .menu {
+            position: absolute;
+            width: 173px;
+            height: 29px;
+            left: 369px;
+            top: 186px;
+            font-family: 'David Libre', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            color: #000;
+        }
+
+        .menu-diagnosa {
+            position: absolute;
+            width: 165px;
+            height: 29px;
+            left: 552px;
+            top: 186px;
+            font-family: 'David Libre', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            color: #000;
+        }
+
+        .menu-riwayat {
+            position: absolute;
+            width: 166px;
+            height: 29px;
+            left: 727px;
+            top: 186px;
+            font-family: 'David Libre', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            color: #000;
+        }
+
+        .menu-logout {
+            position: absolute;
+            width: 166px;
+            height: 29px;
+            left: 903px;
+            top: 186px;
+            font-family: 'David Libre', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            color: #000;
+        }
+
+        .rectangle-content {
+            position: absolute;
+            width: 1000px;
+            height: 550px;
+            left: 300px;
+            top: 200px;
+            border: 2px solid #e9762b;
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .table-container {
+            height: 420px;
+            overflow-y: auto;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background: #41644a;
+            color: #f1f0e9;
+            z-index: 2;
+        }
+
+        th, td {
+            border: 1px solid #000000;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #41644a;
+        }
+
+        .back-link {
+            position: absolute;
+            width: 138px;
+            height: 29px;
+            left: 1400px;
+            top: 50px;
+            font-weight: 400;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.2em;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+         </style>
+</head>
+
+<body>
+    <main class="halaman-diagnosa">
+        <header class="header">
+            <div class="logo-container">
+                <img class="logo_bibup" src="../static/gambar/logo_bibup.png" alt="Logo BIBUPlant" />
+                <div class="brand-info">
+                    <h1 class="div">BIBUPlant</h1>
+                    <p class="text-wrapper-2">Bibit Sehat, Panen Nikmat!</p>
+                </div>
+            </div>
+            <a href="/dashboard" class="back-link">Kembali</a>
+        </header>
+        <nav class="navigation" aria-label="Main navigation">
+            <div class="rectangle" role="presentation"></div>
+            <ul class="nav-list">
+                <li><a id="dashboard-link" href="/dashboard" class="text-wrapper-3" aria-current="page">Dashboard</a></li>
+                <li><a id="diagnosa-link" href="/diagnosa" class="text-wrapper-4">Diagnosa</a></li>
+                <li><a href="#riwayat" class="text-wrapper-5">Riwayat</a></li>
+                <li><a id="auth-link" href="/login" class="text-wrapper-6">Login</a></li>
+            </ul>
+        </nav>
+        <div class="rectangle-content">
+            <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>User_Id</th>
+                        <th>Username</th>
+                        <th>Tanggal</th>
+                        <th>Gejala</th>
+                        <th>Kode_Penyakit</th>
+                        <th>Similarity</th>
+                    </tr>
+                </thead>
+                <tbody id="riwayatTable"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const authLink = document.getElementById('auth-link');
+
+    if (isLoggedIn) {
+        authLink.textContent = 'Logout';
+        authLink.href = '#';
+        authLink.onclick = function () {
+        fetch('/logout').then(() => {
+            localStorage.clear();
+            window.location.href = '/dashboard';
+        });
+        return false;
+    };
+    } else {
+        authLink.textContent = 'Login';
+        authLink.href = '/login';
+    } });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const tbody = document.getElementById("riwayatTable");
+
+        fetch("/user/get-riwayat")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                tbody.innerHTML = "";
+                data.forEach((row, i) => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${i + 1}</td>
+                            <td>${row.user_id}</td>
+                            <td>${row.username}</td>
+                            <td>${row.tanggal}</td>
+                            <td>${row.gejala}</td>
+                            <td>${row.kode_penyakit}</td>
+                            <td>${row.similarity}%</td>
+                        </tr>
+                    `;
+                });
+            })
+            .catch(err => {
+                console.error(err);
+                tbody.innerHTML = `<tr><td colspan="7">Gagal memuat data</td></tr>`;
+            });
+    });
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="description" content="BIBUPlant - Platform cerdas berbasis kecerdasan buatan untuk mendeteksi penyakit bibit buah tropis" />
+    <title>BIBUPlant - diagnosa</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0; 
+            min-height: 100vh;
+            background-color: #f1f0e9;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+        .halaman-diagnosa {
+            width: 100vw;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .halaman-diagnosa .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative;
+        }
+
+        .halaman-diagnosa .logo-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .halaman-diagnosa .logo_bibup {
+            width: 115px;
+            height: 115px;
+            flex-shrink: 0;
+            position: relative;
+            top: -4px;
+            left: 10px;
+        }
+
+        .halaman-diagnosa .brand-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 10px;
+        }
+
+        .halaman-diagnosa .div {
+            width: 188px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Dangrek-Bold";
+            font-weight: 700;
+            color: #000000;
+            font-size: 25px;
+            text-align: center;
+            letter-spacing: 8.00px;
+            line-height: 1px;
+            margin: 0;
+        }
+
+        .halaman-diagnosa .text-wrapper-2 {
+            width: 280px;
+            height: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            font-family: "Comic Sans";
+            font-weight: 200;
+            color: #000000;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 2.00px;
+            line-height: 10px;
+            margin: 0;
+        }
+
+        .halaman-diagnosa .navigation {
+            position: absolute;
+            justify-content: center;
+            top: 125px;
+            left: 890px;
+            transform: translateX(-50%);
+            width: 759px;
+            height: 45px;
+        }
+
+        .halaman-diagnosa .rectangle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 590px;
+            height: 40px;
+            border-radius: 20px;
+            background: linear-gradient(90deg, rgba(65, 100, 74, 0.25) 0%, rgba(117, 183, 134, 0.25) 100%);
+        }
+
+        .halaman-diagnosa .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .halaman-diagnosa .nav-list li {
+            flex: 1;
+        }
+
+        .halaman-diagnosa .nav-list a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            font-family: "David Libre-Regular", Helvetica;
+            font-weight: 400;
+            color: #000000;
+            font-size: 15px;
+            text-align: center;
+            letter-spacing: 4.00px;
+            line-height: 16px;
+            text-decoration: none;
+            transition: font-weight 0.1s ease;
+            margin: 0 30px;
+            outline: none;
+        }
+
+        .halaman-diagnosa .nav-list a:hover,
+        .halaman-diagnosa .nav-list a:focus {
+            font-weight: 700;
+        }
+
+
+        .halaman-diagnosa .text-wrapper-3 {
+            font-family: "David Libre-Bold", Helvetica;
+            font-weight: 700;
+        }
+
+        .halaman-diagnosa .text-wrapper-4,
+        .halaman-diagnosa .text-wrapper-5,
+        .halaman-diagnosa .text-wrapper-6 {
+            font-family: "David Libre";
+            font-weight: 400;
+        }
+
+        .menu {
+            position: absolute;
+            width: 173px;
+            height: 29px;
+            left: 369px;
+            top: 186px;
+            font-family: 'David Libre', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            color: #000;
+        }
+
+        .menu-diagnosa {
+            position: absolute;
+            width: 165px;
+            height: 29px;
+            left: 552px;
+            top: 186px;
+            font-family: 'David Libre', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            color: #000;
+        }
+
+        .menu-riwayat {
+            position: absolute;
+            width: 166px;
+            height: 29px;
+            left: 727px;
+            top: 186px;
+            font-family: 'David Libre', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            color: #000;
+        }
+
+        .menu-logout {
+            position: absolute;
+            width: 166px;
+            height: 29px;
+            left: 903px;
+            top: 186px;
+            font-family: 'David Libre', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            color: #000;
+        }
+
+        .rectangle-content {
+            position: absolute;
+            width: 1221px;
+            height: 600px;
+            left: 190px;
+            top: 200px;
+            border: 2px solid #41644A;
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .table-container {
+            height: 420px;
+            overflow-y: auto;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background: #41644a;
+            color: #f1f0e9;
+            z-index: 2;
+        }
+
+        th, td {
+            border: 1px solid #000000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #41644a;
+        }
+
+
+        .symptom-title {
+            position: absolute;
+            width: 524px;
+            height: 29px;
+            left: 500px;
+            top: 250px;
+            font-family: 'David Libre';
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #ebeaea;
+        }
+
+
+        .diagnosa-button {
+            position: absolute;
+            width: 180px;
+            height: 50px;
+            left: 1200px;
+            top: 735px;
+            background: #41644a;
+            border-radius: 20px;
+            font-family: 'David Libre';
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: #fff;
+            text-align: center;
+            line-height: 55px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-link {
+            position: absolute;
+            width: 138px;
+            height: 29px;
+            left: 1400px;
+            top: 50px;
+            font-weight: 400;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.2em;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .choose-data {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .choose-data input {
+            width: 300px;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+
+    </style>
+</head>
+<body>
+    <main class="halaman-diagnosa">
+        <header class="header">
+            <div class="logo-container">
+                <img class="logo_bibup" src="../static/gambar/logo_bibup.png" alt="Logo BIBUPlant" />
+                <div class="brand-info">
+                    <h1 class="div">BIBUPlant</h1>
+                    <p class="text-wrapper-2">Bibit Sehat, Panen Nikmat!</p>
+                </div>
+            </div>
+            <a href="/dashboard" class="back-link">Kembali</a>
+        </header>
+        <nav class="navigation" aria-label="Main navigation">
+            <div class="rectangle" role="presentation"></div>
+            <ul class="nav-list">
+                <li><a id="dashboard-link" href="/dashboard" class="text-wrapper-3" aria-current="page">Dashboard</a></li>
+                <li><a id="diagnosa-link" href="/diagnosa" class="text-wrapper-4">Diagnosa</a></li>
+                <li><a id="riwayat-link" href="/riwayat" class="text-wrapper-5">Riwayat</a></li>
+                <li><a id="auth-link" href="/login" class="text-wrapper-6">Login</a></li>
+            </ul>
+        </nav>
+        
+      <div class="rectangle-content">
+
+    <div class="choose-data">
+        <h2 style="color:#000;">
+            Pilih Gejala Penyakit Tanaman Anda!
+        </h2>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kode</th>
+                    <th>Jenis Gejala</th>
+                    <th>Pilih</th>
+                </tr>
+            </thead>
+            <tbody id="gejalaTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const tbody = document.getElementById("gejalaTable");
+
+    function loadGejala() {
+        fetch("/get_symptom")
+            .then(res => res.json())
+            .then(data => {
+                tbody.innerHTML = "";
+
+                data.forEach((item, index) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${item.kode}</td>
+                        <td>${item.name}</td>
+                        <td>
+                            <input 
+                                type="checkbox" 
+                                class="gejala-checkbox"
+                                value="${item.kode}"
+                            >
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Gagal memuat data gejala");
+            });
+    }
+
+    loadGejala();
+
+});
+</script>
+    <button id="diagnosaBtn" class="diagnosa-button">DIAGNOSA</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const authLink = document.getElementById('auth-link');
+
+            if (isLoggedIn) {
+                authLink.textContent = 'Logout';
+                authLink.href = '#'; 
+
+                authLink.onclick = function() {
+                    logout(); 
+                    return false; 
+                };
+            } else {
+                authLink.textContent = 'Login'; 
+                authLink.href = '/login'; 
+            }
+
+            function logout() {
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = '/dashboard';
+            }
+        });
+    </script>
+    <script>
+    document.getElementById('diagnosaBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const checkboxes = document.querySelectorAll('.gejala-checkbox');
+    const gejalaUser = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+    if (gejalaUser.length === 0) {
+        alert("Pilih minimal 1 gejala");
+        return;
+    }
+
+    fetch("/diagnosa2", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ gejala: gejalaUser })
+    })
+    .then(res => res.json())
+    .then(data => {
+        localStorage.setItem("hasilDiagnosa", JSON.stringify(data));
+        window.location.href = "/hasil-diagnosa";
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Gagal melakukan diagnosa");
+    });
+});
+</script>
+</body>
+</html>

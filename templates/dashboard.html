@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="description" content="BIBUPlant - Platform cerdas berbasis kecerdasan buatan untuk mendeteksi penyakit bibit buah tropis" />
+    <title>BIBUPlant - Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0; 
+            min-height: 100vh;
+            background-color: #f1f0e9;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+        .halaman-dashboard {
+            width: 100vw;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .halaman-dashboard .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative;
+        }
+
+        .halaman-dashboard .logo-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .halaman-dashboard .logo_bibup {
+            width: 115px;
+            height: 115px;
+            flex-shrink: 0;
+            position: relative;
+            top: -4px;
+            left: 10px;
+        }
+
+        .halaman-dashboard .brand-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 10px;
+        }
+
+        .halaman-dashboard .div {
+            width: 188px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Dangrek-Bold";
+            font-weight: 700;
+            color: #000000;
+            font-size: 25px;
+            text-align: center;
+            letter-spacing: 8.00px;
+            line-height: 1px;
+            margin: 0;
+        }
+
+        .halaman-dashboard .text-wrapper-2 {
+            width: 280px;
+            height: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            font-family: "Comic Sans";
+            font-weight: 200;
+            color: #000000;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 2.00px;
+            line-height: 10px;
+            margin: 0;
+        }
+
+        .halaman-dashboard .user-greeting {
+            display: flex;
+            flex-direction: column;
+            padding-top: 37px;
+            position: absolute;
+            left: 1275px;
+        }
+
+        .halaman-dashboard .text-wrapper {
+            width: 200px;
+            font-family: "Helvetica";
+            font-weight: 200;
+            color: #000000;
+            font-size: 17px;
+            letter-spacing: 5.60px;
+            line-height: 16px;
+            display: flex;
+        }
+
+        .halaman-dashboard .navigation {
+            position: absolute;
+            justify-content: center;
+            top: 125px;
+            left: 890px;
+            transform: translateX(-50%);
+            width: 759px;
+            height: 45px;
+        }
+
+        .halaman-dashboard .rectangle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 590px;
+            height: 40px;
+            border-radius: 20px;
+            background: linear-gradient(90deg, rgba(65, 100, 74, 0.25) 0%, rgba(117, 183, 134, 0.25) 100%);
+        }
+
+        .halaman-dashboard .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .halaman-dashboard .nav-list li {
+            flex: 1;
+        }
+
+        .halaman-dashboard .nav-list a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            font-family: "David Libre-Regular", Helvetica;
+            font-weight: 400;
+            color: #000000;
+            font-size: 15px;
+            text-align: center;
+            letter-spacing: 4.00px;
+            line-height: 16px;
+            text-decoration: none;
+            transition: font-weight 0.1s ease;
+            margin: 0 30px;
+            outline: none;
+        }
+
+        .halaman-dashboard .nav-list a:hover,
+        .halaman-dashboard .nav-list a:focus {
+            font-weight: 700;
+        }
+
+        .halaman-dashboard .text-wrapper-3 {
+            font-family: "David Libre-Bold", Helvetica;
+            font-weight: 700;
+        }
+
+        .halaman-dashboard .text-wrapper-4,
+        .halaman-dashboard .text-wrapper-5,
+        .halaman-dashboard .text-wrapper-6 {
+            font-family: "David Libre";
+            font-weight: 400;
+        }
+
+        .halaman-dashboard .about-section {
+            position: absolute;
+            top: 210px;
+            left: 105px;
+        }
+
+        .halaman-dashboard .frame-2 {
+            width: 230px;
+            height: 16px;
+            display: flex;
+            margin-bottom: 26px;
+        }
+
+        .halaman-dashboard .text-wrapper-9 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 232px;
+            height: 1px;
+            margin-left: 6px;
+            font-family: "David Libre";
+            font-weight: 700;
+            color: #000000;
+            font-size: 28px;
+            text-align: center;
+            letter-spacing: 5.60px;
+            line-height: 10px;
+            white-space: nowrap;
+        }
+
+        .halaman-dashboard .frame-3 {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .halaman-dashboard .p {
+            position: relative;
+            width: 830px;
+            left: -5px;
+            margin-top: -1.00px;
+            font-family: "Cairo-Regular", Helvetica;
+            font-weight: 400;
+            color: #000000;
+            font-size: 16px;
+            text-align: justify;
+            letter-spacing: 1px;
+            line-height: 32px;
+        }
+
+        .halaman-dashboard .cta-section {
+            position: absolute;
+            top: 480px;
+            left: 115px;
+        }
+
+        .halaman-dashboard .group {
+            width: 377px;
+            height: 79px;
+            position: relative;
+        }
+
+        .halaman-dashboard .rectangle-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 1px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .halaman-dashboard .rectangle-2 {
+            position: relative;
+            align-self: stretch;
+            width: 80%;
+            height: 50px;
+            background-color: #41644a;
+            border-radius: 20px;
+        }
+
+        .halaman-dashboard .div-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            position: absolute;
+            top: 20.5px;
+            left: 20.5px;
+        }
+
+        .halaman-dashboard .text-wrapper-8 {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            margin-top: -8.00px;
+            font-family: "David Libre-Bold", Helvetica;
+            font-weight: 500;
+            color: #f1f0e9;
+            font-size: 15px;
+            text-align: center;
+            letter-spacing: 3px;
+            line-height: 1px;
+            text-decoration: none;
+        }
+
+        .halaman-dashboard .text-wrapper-8:hover,
+        .halaman-dashboard .text-wrapper-8:focus{
+        }
+
+        .halaman-dashboard .partner-section {
+            position: absolute;
+            top: 570px;
+            left: 105px;
+        }
+
+        .halaman-dashboard .frame {
+            width: 230px;
+            height: 16px;
+            display: flex;
+            margin-bottom: 26px;
+        }
+
+        .halaman-dashboard .text-wrapper-7 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            width: 232px;
+            height: 1px;
+            margin-left: 78px;
+            font-family: "David Libre";
+            font-weight: 700;
+            color: #000000;
+            font-size: 28px;
+            text-align: center;
+            letter-spacing: 5.60px;
+            line-height: 1px;
+            white-space: nowrap;
+        }
+
+        .halaman-dashboard .partner-content {
+            display: flex;
+            gap: 12px;
+        }
+
+        .halaman-dashboard .LOGO-mitra-bibit-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 158px;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .halaman-dashboard .LOGO-mitra-bibit {
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            height: auto;
+            max-height: 131px;
+            object-fit: contain; 
+        }
+
+        .halaman-dashboard .CV-mitra-bibit-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .halaman-dashboard .CV-mitra-bibit {
+            position: relative;
+            width: 649px;
+            margin-top: -1.00px;
+            font-family: "Cairo-Regular", Helvetica;
+            font-weight: 400;
+            color: #000000;
+            font-size: 16px;
+            text-align: justify;
+            letter-spacing: 3.20px;
+            line-height: 30px;
+        }
+
+        .halaman-dashboard .span {
+            letter-spacing: 0.51px;
+        }
+
+        .halaman-dashboard .CV-mitra-bibit a {
+            color: #000000;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        .halaman-dashboard .CV-mitra-bibit a:hover,
+        .halaman-dashboard .CV-mitra-bibit a:focus {
+            color: #41644a;
+        }
+
+        .halaman-dashboard .gallery {
+         position: absolute;
+         top: 210px;
+         left: 1200px;
+         display: flex;
+        flex-direction: column;
+        }
+
+        .halaman-dashboard .image-wrapper,
+        .halaman-dashboard .img-wrapper,
+        .halaman-dashboard .image-wrapper2,
+        .halaman-dashboard .img-wrapper2 {
+            display: flex;
+            flex-direction: column;
+            width: 240px;
+            height: 120px;
+            align-items: flex-start;
+            padding: 11px;
+        }
+
+        .halaman-dashboard .content-image1,
+        .halaman-dashboard .content-image2,
+        .halaman-dashboard .content-image3,
+        .halaman-dashboard .content-image4 {
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            height: 172px;
+            object-fit: cover;
+            border-radius: 2%;
+        }
+
+    </style>
+</head>
+<body>
+    <main class="halaman-dashboard">
+        <header class="header">
+            <div class="logo-container">
+                <img class="logo_bibup" src="../static/gambar/logo_bibup.png" alt="Logo BIBUPlant" />
+                <div class="brand-info">
+                    <h1 class="div">BIBUPlant</h1>
+                    <p class="text-wrapper-2">Bibit Sehat, Panen Nikmat!</p>
+                </div>
+            </div>
+            <div class="user-greeting">
+                <span class="text-wrapper">Halo Bibup!</span>
+            </div>
+        </header>
+        <nav class="navigation" aria-label="Main navigation">
+            <div class="rectangle" role="presentation"></div>
+            <ul class="nav-list">
+                <li><a id="dashboard-link" href="/dashboard" class="text-wrapper-3" aria-current="page">Dashboard</a></li>
+                <li><a id="diagnosa-link" href="/diagnosa" class="text-wrapper-4">Diagnosa</a></li>
+                <li><a id="riwayat-link" href="/riwayat" class="text-wrapper-5">Riwayat</a></li>
+                <li><a id="auth-link" href="/login" class="text-wrapper-6">Login</a></li>
+            </ul>
+        </nav>
+        <section class="about-section" aria-labelledby="about-heading">
+            <div class="frame-2">
+                <h2 class="text-wrapper-9" id="about-heading">Tentang Kami</h2>
+            </div>
+            <div class="frame-3">
+                <p class="p">
+                    BIBUPlant adalah platform cerdas berbasis kecerdasan buatan yang mendeteksi penyakit bibit buah tropis
+                    melalui analisis gejala visual secara cepat dan akurat. Didesain untuk petani, pelaku agribisnis, dan
+                    pemerhati pertanian, BIBUPlant membantu mencegah gagal panen sejak tahap pembibitan dengan diagnosis serta
+                    rekomendasi penanganan yang tepat. Didukung tim ahli dan teknologi modern, BIBUPlant berkomitmen mewujudkan
+                    pertanian sehat, efisien, dan berkelanjutan di Indonesia dan dunia.
+                </p>
+            </div>
+        </section>
+       <section class="cta-section">
+    <div class="group">
+        <div class="rectangle-wrapper">
+            <div class="rectangle-2" role="presentation"></div>
+        </div>
+        <div class="div-wrapper">
+            <a id="cta-link" class="text-wrapper-8" href="#">Diagnosa Sekarang</a>
+        </div>
+    </div>
+</section>
+        <section class="partner-section" aria-labelledby="partner-heading">
+            <div class="frame">
+                <h2 class="text-wrapper-7" id="partner-heading">Tentang Partner Kami</h2>
+            </div>
+            <div class="partner-content">
+                <div class="LOGO-mitra-bibit-wrapper">
+                    <img class="LOGO-mitra-bibit" src="../static/gambar/logo_mitra.png" alt="Logo CV Mitra Bibit" />
+                </div>
+                <div class="CV-mitra-bibit-wrapper">
+                    <p class="CV-mitra-bibit">
+                        <span class="span">
+                            CV Mitra Bibit adalah perusahaan pembudidaya bibit tanaman hortikultura yang berlokasi di Kabupaten
+                            Purworejo dan telah dipercaya sejak 2015. Sebagai mitra utama dalam pengembangan sistem, perusahaan ini
+                            berperan penting dalam observasi kesehatan bibit buah. Selain budidaya, CV Mitra Bibit juga melayani
+                            penjualan bibit dalam skala lokal dan internasional. Info selengkapnya:
+                        </span>
+                        <a href="http://www.mitrabibit.com/" target="_blank" rel="noopener noreferrer" class="span">www.mitrabibit.com.</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <aside class="gallery" aria-label="Gallery of plant nursery images">
+            <div class="image-wrapper">
+                <img class="content-image1" src="../static/gambar/gambar1.jpg" alt="Nursery image 1" />
+            </div>
+            <div class="img-wrapper">
+                <img class="content-image2" src="../static/gambar/gambar2.jpg" alt="Nursery image 2" />
+            </div>
+            <div class="image-wrapper2">
+                <img class="content-image3" src="../static/gambar/gambar3.jpg" alt="Nursery image 3" />
+            </div>
+            <div class="img-wrapper2">
+                <img class="content-image4" src="../static/gambar/gambar4.jpg" alt="Nursery image 4" />
+            </div>
+        </aside>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+            const authLink = document.getElementById('auth-link');
+            const diagnosaLink = document.getElementById('diagnosa-link');
+            const ctaLink = document.getElementById('cta-link');
+            const riwayatLink = document.getElementById('riwayat-link');
+
+            if (isLoggedIn) {
+                authLink.textContent = 'Logout';
+                authLink.href = '/dashboard';
+                authLink.onclick = function () {
+                    logout();
+                    return false;
+                };
+            } else {
+                authLink.textContent = 'Login';
+                authLink.href = '/login';
+            }
+
+            if (isLoggedIn) {
+                if (ctaLink) ctaLink.href = '/diagnosa';
+                if (diagnosaLink) diagnosaLink.href = '/diagnosa';
+                if (riwayatLink) riwayatLink.href = '/riwayat';
+            } else {
+                if (ctaLink) ctaLink.href = '/login';
+                if (diagnosaLink) diagnosaLink.href = '/login';
+                if (riwayatLink) riwayatLink.href = '/login';
+            }
+        });
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = '/dashboard';
+        }
+        </script>
+
+    <script>
+    window.addEventListener("beforeunload", function () {
+        navigator.sendBeacon("/logout");
+    });
+    </script>
+</body>
+</html>
