@@ -9,10 +9,11 @@ app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(minutes=30)
 app.secret_key ='bibuplant-secret-key'
 
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = 'switchyard.proxy.rlwy.net'
 app.config['MYSQL_USER'] = 'root'       
-app.config['MYSQL_PASSWORD'] = ''        
-app.config['MYSQL_DB'] = 'bibuplant'
+app.config['MYSQL_PASSWORD'] = 'gdjsJHvkEAnErWlUOTpfwPesuvBVWWYk'        
+app.config['MYSQL_DB'] = 'railway'
+app.config['MYSQL_PORT'] = '25299'
 
 mysql = MySQL(app)
 
