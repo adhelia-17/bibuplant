@@ -180,7 +180,7 @@
 
         .password-label {
             position: absolute;
-            width: 145px;
+            width: 180px;
             height: 36px;
             left: 430px;
             top: 343px;
@@ -279,7 +279,7 @@
     <div class="rectangle3"></div>
     <div class="rectangle2"></div>
     <a href="/dashboard" class="back-link">Kembali</a>
-    <div class="login">Login</div>
+    <div class="login">Masuk</div>
     <div class="name-label">Nama</div>
     <div class="input-container">
             <input type="text" id="username" class="input-nama" onfocus="hideLabel('nama')" onblur="showLabel('nama')" />
@@ -287,13 +287,13 @@
         </div>
         <div class="input-container">
             <input type="password" id="password" class="input-password" onfocus="hideLabel('password')" onblur="showLabel('password')" />
-            <div class="password-teks">Masukkan Password</div>
+            <div class="password-teks">Masukkan Kata Sandi</div>
             <span class="eye-icon" onclick="togglePassword(this)"><i class="fa fa-eye"></i></span>
         </div>
-        <button class="login-button" onclick="submitLogin()">Login</button>
+        <button class="login-button" onclick="submitLogin()">Masuk</button>
     </div>
-    <div class="password-label">Password</div>
-     <a href="/signup" class="signup-button">Sign Up</a>
+    <div class="password-label">Kata Sandi</div>
+     <a href="/signup" class="signup-button">Daftar</a>
 
     <script>
         function hideLabel(type) {
