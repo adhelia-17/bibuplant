@@ -151,7 +151,7 @@
         }
         
         .container {
-            position: relative;
+            position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -304,10 +304,10 @@
     <div class="rectangle3"></div>
     <div class="rectangle2"></div>
     <a href="/dashboard" class="back-link">Kembali</a>
-    <div class="signup">Daftar</div>
+    <div class="signup">Sign Up</div>
     <div class="name-label">Nama</div>
     <div class="email-label">Email</div>
-    <div class="password-label">Kata Sandi</div>
+    <div class="password-label">Password</div>
     <div class="container">
     <div class="input-container">
             <input type="text" id="username" class="input-nama" onfocus="hideLabel('nama')" onblur="showLabel('nama')" />
@@ -319,12 +319,12 @@
         </div>
     <div class="input-container">
             <input type="password" id="password" class="input-password" onfocus="hideLabel('password')" onblur="showLabel('password')" />
-            <div class="password-teks">Masukkan Kata Sandi</div>
+            <div class="password-teks">Masukkan Password</div>
             <span class="eye-icon" onclick="togglePassword(this)"><i class="fa fa-eye"></i></span>
         </div>
         </div>
-        <button class="signup-button" onclick="signup()" style="top:610px">Daftar</button>
-        <a href="/login" class="login-button" style="top:610px">Masuk</a>
+        <button class="signup-button" onclick="signup()" style="top:610px">Sign Up</button>
+        <a href="/login" class="login-button" style="top:610px">Login</a>
     </div>
     
     <script>
@@ -345,7 +345,7 @@
     }
  
     if (password.length < 8) {
-        alert("Kata Sandi minimal 8 karakter");
+        alert("Password minimal 8 karakter");
         return;
     }
 
@@ -365,7 +365,7 @@
         if (data.error) {
             alert(data.error);
         } else {
-            alert("Daftar berhasil, silakan Masuk");
+            alert("Signup berhasil, silakan login");
             window.location.href = "/login";
         }
     })
