@@ -434,7 +434,7 @@
                 <li><a id="dashboard-link" href="/dashboard" class="text-wrapper-3" aria-current="page">Dashboard</a></li>
                 <li><a id="diagnosa-link" href="/diagnosa" class="text-wrapper-4">Diagnosa</a></li>
                 <li><a id="riwayat-link" href="/riwayat" class="text-wrapper-5">Riwayat</a></li>
-                <li><a id="auth-link" href="/login" class="text-wrapper-6">Login</a></li>
+                <li><a id="auth-link" href="/login" class="text-wrapper-6">Masuk</a></li>
             </ul>
         </nav>
         <section class="about-section" aria-labelledby="about-heading">
@@ -507,14 +507,14 @@
             const riwayatLink = document.getElementById('riwayat-link');
 
             if (isLoggedIn) {
-                authLink.textContent = 'Logout';
+                authLink.textContent = 'Keluar';
                 authLink.href = '/dashboard';
                 authLink.onclick = function () {
                     logout();
                     return false;
                 };
             } else {
-                authLink.textContent = 'Login';
+                authLink.textContent = 'Masuk';
                 authLink.href = '/login';
             }
 
